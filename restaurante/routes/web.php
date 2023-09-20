@@ -18,5 +18,3 @@ Route::get('/', function () {
 });
 
 Route::view ('/inicio','album/index');
-
-Route::view ('/inicio','album/photo');
