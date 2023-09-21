@@ -19,4 +19,3 @@ Route::get('/', function () {
 
 Route::view ('/menu','album/index');
 Route::view ('/inicio','cover/index');
-aañosfh
