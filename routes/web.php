@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view ('/menu','album/index');
-Route::view ('/inicio','cover/index');
+Route::view ('/admi','/dashboard/index');
+Route::view ('/order','/order/index');
