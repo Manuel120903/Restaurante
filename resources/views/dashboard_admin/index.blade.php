@@ -50,7 +50,7 @@
   </div>
 </header>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
@@ -62,19 +62,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/order">
+            <a class="nav-link" href="/admin/orders">
               <span data-feather="file"></span>
               Orders
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/admin/products">
               <span data-feather="shopping-cart"></span>
               Products
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/admin/customers">
               <span data-feather="users"></span>
               Customers
             </a>
