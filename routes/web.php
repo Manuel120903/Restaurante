@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 
 Route::view ('/admin/orders','orders.index');
-Route::view ('/admin/products','products.index');
+Route::view ('/admin/foods','foods.index');
 Route::view ('/admin/customers','customers.index');
