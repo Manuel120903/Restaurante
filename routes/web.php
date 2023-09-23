@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
+
+use Database\Seeders\OrderSeeder;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +24,10 @@ Route::get('/', function () {
 });
 
 
-Route::view ('/admin/orders','orders.index');
-Route::view ('/admin/foods','foods.index');
-Route::view ('/admin/customers','customers.index');
+//Route::view ('/admin/orders','orders.index');
+//Route::view ('/admin/foods','foods.index');
+//Route::view ('/admin/customers','customers.index');
+
+Route::resource('/admin/foods', FoodController::class);
+Route::resource('/admin/users', UserController::class);
+Route::resource('/admin/orders', OrderController::class);
