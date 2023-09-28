@@ -24,8 +24,8 @@
           <div class="col-12">
             {{-- separador de columnas --}}
           </div>
-          <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Nombre del platillo</label>
+          <div class="col-md-5">
+            <label for="validationDefault01" class="form-label">Nombre del platillo/bebida</label>
             <input type="text" class="form-control" id="validationDefault01" placeholder="Escribe un platillo" maxlength="50" required>
             <div class="valid-feedback">
               Muy bien
@@ -34,7 +34,9 @@
               Porfavor inserta un nombre de platillo
             </div>
           </div>
-
+          <div class="col-1">
+            {{-- separador de columnas --}}
+          </div>
           <div class="col-md-5">
             <label for="validationDefault04" class="form-label">Categoria</label>
             <select class="form-select" id="validationDefault04" required>

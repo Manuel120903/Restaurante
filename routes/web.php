@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 
-//Route::view ('/admin/orders','orders.index');
+Route::view ('/inicio','inicio.index');
 //Route::view ('/admin/foods','foods.index');
 //Route::view ('/admin/customers','customers.index');
 

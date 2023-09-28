@@ -6,12 +6,14 @@
         <th scope="col">#</th>
         <th scope="col">Nombre del Usuario</th>
         <th scope="col">Numero de Telefono</th>
-        <th scope="col">Categorias</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Foto</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">1</th>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>

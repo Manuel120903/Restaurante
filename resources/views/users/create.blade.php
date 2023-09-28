@@ -23,18 +23,21 @@
         Porfavor inserta un numero de telefono
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-2">
               {{-- separador de columnas --}}
     </div>
-    <div class="col-md-3">
+    <div class="col-2">
+      {{-- separador de columnas --}}
+</div>
+    <div class="col-md-4">
       <label for="validationDefaultUsername" class="form-label">Ingrese un correo</label>
       <div class="input-group">
         <span class="input-group-text" id="inputGroupPrepend2">@</span>
         <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
-    
-    <div class="col-md-3">
+   
+    <div class="col-md-4">
       <label for="validationDefault03" class="form-label">Ingrese una contraseña</label>
       <input type="password" class="form-control" id="validationDefault03" required>
       <div class="valid-feedback">
@@ -44,9 +47,12 @@
         Porfavor inserta una contraseña
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-2">
           {{-- separador de columnas --}}
     </div>
+    <div class="col-2">
+      {{-- separador de columnas --}}
+</div>
     <div class="col-md-3">
       <label for="validationDefault04" class="form-label">Ingrese una categoria</label>
       <select class="form-select" id="validationDefault04" required>
@@ -56,7 +62,10 @@
         <option>Caja</option>
       </select>
     </div>
-    <div class="col-3">
+    <div class="col-1">
+      {{-- separador de columnas --}}
+</div>
+    <div class="col-4">
       <label for="formFileSm" class="form-label">Ingrese una foto del usuario</label>
       <input class="form-control form-control-sm" id="formFileSm"  type="file" required>
       <div class="valid-feedback">

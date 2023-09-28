@@ -7,10 +7,12 @@
         <th scope="col">Platillo</th>
         <th scope="col">Tipo</th>
         <th scope="col">Descripción</th>
+        <th scope="col">Imagen</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+       <th></th>
        <th></th>
        <th></th>
        <th></th>
