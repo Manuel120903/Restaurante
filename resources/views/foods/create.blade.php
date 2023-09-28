@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-5">
             <label for="validationDefault01" class="form-label">Nombre del platillo/bebida</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="Escribe un platillo" maxlength="50" required>
+            <input name="name" type="text" class="form-control" id="validationDefault01" placeholder="Escribe un platillo" maxlength="50" required>
             <div class="valid-feedback">
               Muy bien
             </div>
@@ -39,7 +39,7 @@
           </div>
           <div class="col-md-5">
             <label for="validationDefault04" class="form-label">Categoria</label>
-            <select class="form-select" id="validationDefault04" required>
+            <select name="category" class="form-select" id="validationDefault04" required>
               <option selected disabled value="">Elige una opción</option>
               <option>Desayuno</option>
               <option>Comida</option>
@@ -54,12 +54,12 @@
 
           <div class="col-md-8">
             <label for="validationDefault02" class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="validationDefault02" placeholder="Escribe una descripción" min="0" required>
+            <input name="description" type="text" class="form-control" id="validationDefault02" placeholder="Escribe una descripción" min="0" required>
           </div>
           
           <div class="col-8">
             <label for="formFileSm" class="form-label">Ingrese una foto del platillo</label>
-            <input class="form-control form-control-sm" id="formFileSm"  type="file" required>
+            <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" required>
             <div class="valid-feedback">
               Muy bien
             </div>

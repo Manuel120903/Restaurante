@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('food', function (Blueprint $table) {
             $table->id();
-            $table-> string('type', 50);
+            $table-> string('category', 50);
             $table-> string('name', 50);
             $table-> string('description', 255);
             $table-> integer('status');
-            $table-> double('price',10,2);
+           // $table-> double('price',100);
+            $table-> string('img1',100);
 
             $table->timestamps();
         });

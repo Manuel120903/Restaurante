@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\food;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -34,7 +35,16 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        echo ('Hola Admin');
+       // echo ('Hola Admin');
+        //dd($request);
+        $ps = new food();
+        $ps->name=$request->name;
+        $ps->category=$request->category;
+        $ps->description=$request->description;
+        $ps->img1=$request->img1;
+        $ps->status=1;
+
+        $ps->save();
     }
 
     /**
