@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\user;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,6 +15,7 @@ class UserController extends Controller
     public function index()
     {
         return view('users.index');   
+        //return view('/users/index')->with('users',User::where('status','ACTIVO')->get());   
      }
 
     /**
@@ -34,7 +36,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        echo('Muy bien a funcionado');
+        //echo('Muy bien a funcionado');
+        $user = new user();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->phone=$request->phone;
+        $user->image=$request->image;
+        $user->category=$request->category;
+        $user->password=$request->password;
+        $user->status=1;
+
+
+
+        //return redirect()->route('user.index');
     }
 
     /**

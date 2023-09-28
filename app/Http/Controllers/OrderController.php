@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\orders;
 use Illuminate\Http\Request;
+
 
 class OrderController extends Controller
 {
@@ -34,7 +36,20 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-    echo('hola de nuevo');
+    //echo('hola de nuevo');
+        $order = new orders();
+        $order->name=$request->name;
+        $order->status=$request->status;
+        $order->date=$request->date;
+        $order->caja_id=$request->caja_id;
+        $order->user_id=$request->user_id;
+        $order->detail_id=$request->detail_id;
+        $order->status=1;
+
+
+        $order->save();
+
+        return redirect()->route('order.index');
     }
 
     /**

@@ -4,20 +4,24 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Platillo</th>
+        <th scope="col">Nombre</th>
         <th scope="col">Tipo</th>
         <th scope="col">Descripción</th>
         <th scope="col">Imagen</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody> 
+      @foreach ($food as $food)
+        
+    
       <tr>
-       <th></th>
-       <th></th>
-       <th></th>
-       <th></th>
-       <th></th>
+       <th scope="row">{{$food->id}}</th>
+       <th>{{$food->name}}</th>
+       <th>{{$food->category}}</th>
+       <th>{{$food->description}}</th>
+       <th>{{$food->img1}}</th>
       </tr>
+      @endforeach
       
     </tbody>
   </table>

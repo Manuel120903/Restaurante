@@ -14,7 +14,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        return view('foods.index');
+        //return view('foods.index');
+        return view('/foods/index')->with('food',food::where('status','1')->get());
     }
 
     /**
@@ -45,6 +46,10 @@ class FoodController extends Controller
         $ps->status=1;
 
         $ps->save();
+
+        return redirect()->route('foods.index');
+
+
     }
 
     /**
