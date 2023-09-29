@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\orders;
+use App\Models\order;
 use Illuminate\Http\Request;
 
 
@@ -40,18 +40,19 @@ class OrderController extends Controller
     //echo('hola de nuevo');
         $order = new order();
         $order->name=$request->name;
+        $order->img1=$request->img1;
         //Abajo ya hay un status, por lo pronto comento esto jsjsj
         //$order->status=$request->status;
-        $order->date=$request->date;
-        $order->caja_id=$request->caja_id;
-        $order->user_id=$request->user_id;
-        $order->detail_id=$request->detail_id;
+       // $order->date=$request->date;
+       // $order->caja_id=$request->caja_id;
+       // $order->user_id=$request->user_id;
+        //$order->detail_id=$request->detail_id;
         $order->status=1;
 
 
         $order->save();
 
-        return redirect()->route('order.index');
+        return redirect()->route('orders.index');
     }
 
     /**

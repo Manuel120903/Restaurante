@@ -16,16 +16,18 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table-> string('name', 50);
-            $table-> tinyInteger('status');
-            $table-> date('date');
+           // $table-> tinyInteger('status');
+            //$table-> date('date');
+            $table-> integer('status');
+            $table-> string('img1',100);
 
-            $table->foreignId('caja_id');
-            $table->foreignId('user_id');
-            $table->foreignId('detail_id');
+           // $table->foreignId('caja_id');
+           // $table->foreignId('user_id');
+           // $table->foreignId('detail_id');
 
-            $table->foreign('caja_id')->references('id')->on('cajas');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('detail_id')->references('id')->on('details');
+           // $table->foreign('caja_id')->references('id')->on('cajas');
+           // $table->foreign('user_id')->references('id')->on('users');
+           // $table->foreign('detail_id')->references('id')->on('details');
 
             $table->timestamps();
         });

@@ -4,19 +4,19 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Platillo</th>
-          <th scope="col">Bebida</th>
-          <th scope="col">Descripcion del Cliente</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Imagen</th>
+         
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        
+        @foreach ($order as $order)
+      <tr>
+       <th scope="row">{{$order->id}}</th>
+       <th>{{$order->name}}</th>
+       <th>{{$order->img1}}</th>
+      </tr>
+      @endforeach
       </tbody>
     </table>
   </div>

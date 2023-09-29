@@ -5,7 +5,7 @@
 </div>
   <div class="col-md-3">
     <label for="validationDefault01" class="form-label">Ingrese nombre del cliente</label>
-    <input type="text" class="form-control" id="validationDefault01"  maxlength="50" required>
+    <input name="name" type="text" class="form-control" id="validationDefault01"  maxlength="50" required>
     <div class="valid-feedback">
       Muy bien
     </div>
@@ -17,7 +17,7 @@
   <div class="col-1">
         {{-- separador de columnas --}}
   </div>
-  <div class="col-md-4">
+  {{-- <div class="col-md-4">
     <label for="validationDefault04" class="form-label">Seleccione una mesa</label>
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione una mesa</option>
@@ -32,12 +32,12 @@
     <div class="invalid-feedback">
       Porfavor inserta alguna opción
     </div>
-  </div>
+  </div> --}}
   <div class="col-2">
     {{-- separador de columnas --}}
 </div>
 
-  <div class="col-md-3">
+  {{-- <div class="col-md-3">
     <label for="validationDefault04" class="form-label">Seleccione el platillo</label>
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione un platillo</option>
@@ -53,11 +53,11 @@
     <div class="invalid-feedback">
       Porfavor inserta alguna opción
     </div>
-  </div>
+  </div> --}}
   <div class="col-1">
     {{-- separador de columnas --}}
 </div>
-  <div class="col-md-4">
+  {{-- <div class="col-md-4">
     <label for="validationDefault04" class="form-label">Seleccione la bebida</label>
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione una bebida</option>
@@ -72,24 +72,24 @@
     <div class="invalid-feedback">
       Porfavor inserta alguina opción
     </div>
-  </div>
+  </div> --}}
   <div class="col-1">
     {{-- separador de columnas --}}
   </div>
   <div class="col-2">
     {{-- separador de columnas --}}
   </div>
-  <div class="col-md-3">
+  {{-- <div class="col-md-3">
     <label for="exampleFormControlTextarea1" class="form-label">Descripcion del Cliente</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
+  </div> --}}
   <div class="col-1">
     {{-- separador de columnas --}}
   </div>
   
   <div class="col-4">
     <label for="formFileSm" class="form-label">Ingrese una foto de la orden</label>
-    <input class="form-control form-control-sm" id="formFileSm"  type="file" >
+    <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" >
     
   </div>
   <div class="col-8">
