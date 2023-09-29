@@ -14,8 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');   
-        //return view('/users/index')->with('users',User::where('status','ACTIVO')->get());   
+        //return view('users.index');   
+        
+        return view('/users/index')->with('users',user::where('status','1')->get());   
      }
 
     /**
@@ -46,9 +47,9 @@ class UserController extends Controller
         $user->password=$request->password;
         $user->status=1;
 
+        $user->save();
 
-
-        //return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
     /**

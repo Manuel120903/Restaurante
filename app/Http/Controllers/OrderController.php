@@ -15,7 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('orders.index');  
+        //return view('orders.index');  
+        return view('/orders/index')->with('order',order::where('status','1')->get());
     }
 
     /**
@@ -37,9 +38,10 @@ class OrderController extends Controller
     public function store(Request $request)
     {
     //echo('hola de nuevo');
-        $order = new orders();
+        $order = new order();
         $order->name=$request->name;
-        $order->status=$request->status;
+        //Abajo ya hay un status, por lo pronto comento esto jsjsj
+        //$order->status=$request->status;
         $order->date=$request->date;
         $order->caja_id=$request->caja_id;
         $order->user_id=$request->user_id;

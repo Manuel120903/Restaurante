@@ -1,6 +1,6 @@
 @extends('dashboard_admin.index')
 
-@section ('title','P R O D U C T S')
+@section ('title','F O O D S')
     
 @section ('content')
     

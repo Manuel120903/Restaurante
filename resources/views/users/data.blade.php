@@ -11,14 +11,17 @@
       </tr>
     </thead>
     <tbody>
+      @foreach ($users as $user)
+        
+    
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+       <th scope="row"> {{$food->id}}</th>
+       <th>{{$user->name}}</th>
+       <th>{{$user->phone}}</th>
+       <th>{{$user->category}}</th>
+       <th>{{$user->image}}</th>
       </tr>
-     
+      @endforeach
     </tbody>
   </table>
 </div>
