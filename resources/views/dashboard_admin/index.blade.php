@@ -45,7 +45,7 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
+      <a class="nav-link px-3" href="#">Salir</a>
     </div>
   </div>
 </header>
@@ -57,7 +57,7 @@
         <ul class="nav flex-column">
           <li class="nav-item">
           <!--Pendiente hacer que lleve a algun lado el botón de INICIO-->
-            <a class="nav-link active" aria-current="page" href="/admin/inicio">
+            <a class="nav-link"  href="/admin/principal">
               <span data-feather="inicio"></span>
               Inicio
             </a>

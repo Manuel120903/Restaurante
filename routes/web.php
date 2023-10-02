@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
@@ -28,6 +29,7 @@ Route::view ('/inicio','inicio.index');
 //Route::view ('/admin/foods','foods.index');
 //Route::view ('/admin/customers','customers.index');
 
+Route::view ('/admin/principal','principal.index');
 Route::resource('/admin/foods', FoodController::class);
 Route::resource('/admin/users', UserController::class);
 Route::resource('/admin/orders', OrderController::class);
