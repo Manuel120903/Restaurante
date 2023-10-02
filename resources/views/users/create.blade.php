@@ -1,6 +1,7 @@
 <form class="row g-3  needs-validation"  action="/admin/users" novalidate method="POST">
   @csrf
     <div class="col-2">
+      
           {{-- separador de columnas --}}
     </div>
     <div class="col-md-4">
