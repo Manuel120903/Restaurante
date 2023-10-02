@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
+use App\Models\food;
 use Illuminate\Http\Request;
 
 
@@ -15,8 +16,22 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //return view('orders.index');  
-        return view('/orders/index')->with('order',order::where('status','1')->get());
+        $food = Food::where('status', '1')
+        ->where('category', '!=', 'bebida')
+        ->get();
+        $bebida = Food::where('status', '1')
+        ->where('category', 'bebida')
+        ->get();
+
+        
+        $order = Order::where('status', '1')->get();
+
+        return view('orders.index', compact('order','food','bebida'));
+
+
+        
+       // return view('tu_vista', compact('users', 'posts'));
+
     }
 
     /**

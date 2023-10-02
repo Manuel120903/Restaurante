@@ -23,9 +23,9 @@ return new class extends Migration
 
            // $table->foreignId('caja_id');
            // $table->foreignId('user_id');
-           // $table->foreignId('detail_id');
+          $table->foreignId('detail_id');
 
-           // $table->foreign('caja_id')->references('id')->on('cajas');
+           //$table->foreign('caja_id')->references('id')->on('cajas');
            // $table->foreign('user_id')->references('id')->on('users');
            // $table->foreign('detail_id')->references('id')->on('details');
 

@@ -17,7 +17,7 @@
   <div class="col-1">
         {{-- separador de columnas --}}
   </div>
-  {{-- <div class="col-md-4">
+  <div class="col-md-4">
     <label for="validationDefault04" class="form-label">Seleccione una mesa</label>
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione una mesa</option>
@@ -32,19 +32,19 @@
     <div class="invalid-feedback">
       Porfavor inserta alguna opción
     </div>
-  </div> --}}
+  </div>
   <div class="col-2">
     {{-- separador de columnas --}}
 </div>
 
-  {{-- <div class="col-md-3">
+  <div class="col-md-3">
     <label for="validationDefault04" class="form-label">Seleccione el platillo</label>
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione un platillo</option>
-      <option>Ninguna</option>
-      <option>Huevos</option>
-      <option>Chilaquiles</option>
-      <option>Lonche de Jamon</option>
+      {{-- @section('food') --}}
+      @forEach($food as $food)
+      <option value="{{$food->id}}">{{$food->name}}</option>
+      @endforeach
 
     </select>
     <div class="valid-feedback">
@@ -53,17 +53,17 @@
     <div class="invalid-feedback">
       Porfavor inserta alguna opción
     </div>
-  </div> --}}
+  </div>
   <div class="col-1">
     {{-- separador de columnas --}}
 </div>
-  {{-- <div class="col-md-4">
+  <div class="col-md-4">
     <label for="validationDefault04" class="form-label">Seleccione la bebida</label>
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione una bebida</option>
-      <option>Cafe</option>
-      <option>Agua de Sabor</option>
-      <option>Refrescos</option>
+      @forEach($bebida as $bebida)
+      <option value="{{$bebida->id}}">{{$bebida->name}}</option>
+      @endforeach
 
     </select>
     <div class="valid-feedback">
@@ -72,17 +72,17 @@
     <div class="invalid-feedback">
       Porfavor inserta alguina opción
     </div>
-  </div> --}}
+  </div>
   <div class="col-1">
     {{-- separador de columnas --}}
   </div>
   <div class="col-2">
     {{-- separador de columnas --}}
   </div>
-  {{-- <div class="col-md-3">
+  <div class="col-md-3">
     <label for="exampleFormControlTextarea1" class="form-label">Descripcion del Cliente</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div> --}}
+  </div>
   <div class="col-1">
     {{-- separador de columnas --}}
   </div>
