@@ -1,10 +1,17 @@
+@extends('dashboard_admin.index')
 
-  <div class="container">
+@section ('title','F O O D S      E D I T')
+
+@section ('content')
+
+
+<div class="container">
     
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form class="row g-2 needs-validation"  action="/admin/foods" novalidate method="POST">
+        <form class="row g-2 needs-validation"  action="/admin/foods/{{$foods->id}}" novalidate method="POST">
           @csrf
+          @method('PUT')
           <div class="col-12">
             {{-- separador de columnas --}}
           </div>
@@ -26,7 +33,8 @@
           </div>
           <div class="col-md-5">
             <label for="validationDefault01" class="form-label">Nombre del platillo/bebida</label>
-            <input name="name" type="text" class="form-control" id="validationDefault01" placeholder="Escribe un platillo" maxlength="50" required>
+            <input name="name" type="text" class="form-control" id="validationDefault01" placeholder="Escribe un platillo" 
+            value="" maxlength="50" required>
             <div class="valid-feedback">
               Muy bien
             </div>
@@ -56,13 +64,13 @@
             <label for="validationDefault02" class="form-label">Descripción</label>
             <input name="description" type="text" class="form-control" id="validationDefault02" placeholder="Escribe una descripción" min="0" required>
           </div>
-
+          
           <div class="col-md-8">
             <label for="validationDefault02" class="form-label">Costo del Platillo/Bebida</label>
             <input name="price" type="number" class="form-control" id="validationDefault02" placeholder="Escribe un precio" min="0" required>
           </div>
           
-          
+
           <div class="col-8">
             <label for="formFileSm" class="form-label">Ingrese una foto del platillo</label>
             <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" required>
@@ -145,4 +153,6 @@
       }, false)
     })
   })()
-  </script>
+</script>
+
+@endsection

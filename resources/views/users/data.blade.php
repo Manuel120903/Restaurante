@@ -15,7 +15,7 @@
         
     
       <tr>
-       <th scope="row"> {{$food->id}}</th>
+       <th scope="row"> {{$user->id}}</th>
        <th>{{$user->name}}</th>
        <th>{{$user->phone}}</th>
        <th>{{$user->category}}</th>

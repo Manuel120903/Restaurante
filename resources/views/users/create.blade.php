@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-4">
       <label for="validationDefault01" class="form-label">Ingrese un nombre</label>
-      <input type="text" class="form-control" id="validationDefault01"  maxlength="50" required>
+      <input name="name" type="text" class="form-control" id="validationDefault01"  maxlength="50" required>
       <div class="valid-feedback">
         Muy bien
       </div>
@@ -16,7 +16,7 @@
     </div>
     <div class="col-md-4">
       <label for="validationDefault02" class="form-label">Ingrese un numero de telefono</label>
-      <input type="number" class="form-control" id="validationDefault02" maxlength="10" required>
+      <input name="phone" type="number" class="form-control" id="validationDefault02" maxlength="10" required>
       <div class="valid-feedback">
         Muy bien
       </div>
@@ -34,13 +34,13 @@
       <label for="validationDefaultUsername" class="form-label">Ingrese un correo</label>
       <div class="input-group">
         <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+        <input name="email" type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
       </div>
     </div>
    
     <div class="col-md-4">
       <label for="validationDefault03" class="form-label">Ingrese una contraseña</label>
-      <input type="password" class="form-control" id="validationDefault03" required>
+      <input name="password" type="password" class="form-control" id="validationDefault03" required>
       <div class="valid-feedback">
         Muy bien
       </div>
@@ -56,7 +56,7 @@
 </div>
     <div class="col-md-3">
       <label for="validationDefault04" class="form-label">Ingrese una categoria</label>
-      <select class="form-select" id="validationDefault04" required>
+      <select name="category" class="form-select" id="validationDefault04" required>
         <option selected disabled value="">Escoje...</option>
         <option>Cocinero</option>
         <option>Mesero</option>
@@ -68,7 +68,7 @@
 </div>
     <div class="col-4">
       <label for="formFileSm" class="form-label">Ingrese una foto del usuario</label>
-      <input class="form-control form-control-sm" id="formFileSm"  type="file" required>
+      <input name="image" class="form-control form-control-sm" id="formFileSm"  type="file" required>
       <div class="valid-feedback">
         Muy bien
       </div>

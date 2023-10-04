@@ -8,6 +8,9 @@
         <th scope="col">Tipo</th>
         <th scope="col">Descripción</th>
         <th scope="col">Imagen</th>
+        <th></th>
+        <th></th>
+        
       </tr>
     </thead>
     <tbody> 
@@ -20,6 +23,8 @@
        <th>{{$food->category}}</th>
        <th>{{$food->description}}</th>
        <th>{{$food->img1}}</th>
+       <td><a href="/admin/foods/{{$food->id}}/edit"><Em>EDITAR</Em></a></td>
+       <td><a href="/admin/foods/{{$food->id}}"><Em>BORRAR</Em></a></td>
       </tr>
       @endforeach
       

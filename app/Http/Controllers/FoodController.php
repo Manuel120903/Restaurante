@@ -42,6 +42,7 @@ class FoodController extends Controller
         $ps->name=$request->name;
         $ps->category=$request->category;
         $ps->description=$request->description;
+        $ps->price=$request->price;
         $ps->img1=$request->img1;
         $ps->status=1;
 
@@ -60,7 +61,8 @@ class FoodController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return view('foods/show')->with('foods',Food::find($id));
     }
 
     /**
@@ -71,7 +73,7 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('foods/edit')->with('foods',Food::find($id));
     }
 
     /**
@@ -83,7 +85,18 @@ class FoodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ps=food::find($id);
+        $ps->name=$request->name;
+        $ps->category=$request->category;
+        $ps->description=$request->description;
+        $ps->price=$request->price;
+        $ps->img1=$request->img1;
+        $ps->status=1;
+
+        $ps->save();
+
+        return redirect()->route('foods.index');
+
     }
 
     /**
@@ -94,6 +107,11 @@ class FoodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ps=food::find($id);
+        $ps->status=0;
+
+        $ps->save();
+
+        return redirect()->route('foods.index');
     }
 }

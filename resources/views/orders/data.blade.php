@@ -6,6 +6,9 @@
           <th scope="col">#</th>
           <th scope="col">Cliente</th>
           <th scope="col">Imagen</th>
+          <th scope="col">Mesa</th>
+          
+          
          
         </tr>
       </thead>
@@ -15,6 +18,9 @@
        <th scope="row">{{$order->id}}</th>
        <th>{{$order->name}}</th>
        <th>{{$order->img1}}</th>
+       <th>{{$order->table_id}}</th>
+
+       
       </tr>
       @endforeach
       </tbody>

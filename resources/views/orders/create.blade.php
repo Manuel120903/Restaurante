@@ -6,6 +6,9 @@
   <div class="col-md-3">
     <label for="validationDefault01" class="form-label">Ingrese nombre del cliente</label>
     <input name="name" type="text" class="form-control" id="validationDefault01"  maxlength="50" required>
+    {{-- @forEach($user as $name)
+      <option value="{{$name->id}}">{{$name->name}}</option>
+      @endforeach --}}
     <div class="valid-feedback">
       Muy bien
     </div>
@@ -19,12 +22,11 @@
   </div>
   <div class="col-md-4">
     <label for="validationDefault04" class="form-label">Seleccione una mesa</label>
-    <select class="form-select" id="validationDefault04" required>
+    <select name="table" class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione una mesa</option>
-      <option>Mesa 1</option>
-      <option>Mesa 2</option>
-      <option>Mesa 3</option>
-      <option>Mesa 4</option>
+      @forEach($table as $mesa)
+      <option value="{{$mesa->id}}">{{$mesa->id}} - {{ $mesa->zone }}</option>
+      @endforeach
     </select>
     <div class="valid-feedback">
       Muy bien
@@ -42,8 +44,8 @@
     <select class="form-select" id="validationDefault04" required>
       <option selected disabled value=""> seleccione un platillo</option>
       {{-- @section('food') --}}
-      @forEach($food as $food)
-      <option value="{{$food->id}}">{{$food->name}}</option>
+      @forEach($food as $comida)
+      <option value="{{$comida->id}}">{{$comida->name}}</option>
       @endforeach
 
     </select>

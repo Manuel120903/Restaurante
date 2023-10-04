@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 use App\Models\food;
+use App\Models\table;
 use Illuminate\Http\Request;
 
 
@@ -19,14 +20,16 @@ class OrderController extends Controller
         $food = Food::where('status', '1')
         ->where('category', '!=', 'bebida')
         ->get();
+
         $bebida = Food::where('status', '1')
         ->where('category', 'bebida')
         ->get();
 
+        $table = Table::all();
         
         $order = Order::where('status', '1')->get();
 
-        return view('orders.index', compact('order','food','bebida'));
+        return view('orders.index', compact('order','food','bebida','table'));
 
 
         
@@ -62,6 +65,7 @@ class OrderController extends Controller
        // $order->caja_id=$request->caja_id;
        // $order->user_id=$request->user_id;
         //$order->detail_id=$request->detail_id;
+        $order->table_id=$request->table;
         $order->status=1;
 
 
