@@ -50,13 +50,13 @@ class FoodController extends Controller
         $ps->save();
 
 
-        if($request->hasFile("imagen")){
-            $file = $request->imagen;
+        if($request->hasFile("img1")){
+            $file = $request->img1;
             $extension=$file->extension();
-            $new_name=$ps->id."_.1".$extension;
+            $new_name="food-".$ps->id."_1.".$extension;
             $path = $file->storeAs('Imagenes',$new_name, 'public');
-            $ps->imagen=$path;
-            $ps->save();
+            $ps->img1=$path;
+            $ps->save();    
 
 
         }
