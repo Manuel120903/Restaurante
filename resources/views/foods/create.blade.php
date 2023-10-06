@@ -3,7 +3,7 @@
     
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form class="row g-2 needs-validation"  action="/admin/foods" novalidate method="POST">
+        <form class="row g-2 needs-validation"  action="/admin/foods" novalidate method="POST" enctype="multipart/form-data">
           @csrf
           <div class="col-12">
             {{-- separador de columnas --}}
@@ -65,7 +65,7 @@
           
           <div class="col-8">
             <label for="formFileSm" class="form-label">Ingrese una foto del platillo</label>
-            <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" required>
+            <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" accept="image/*"required>
             <div class="valid-feedback">
               Muy bien
             </div>

@@ -1,4 +1,4 @@
-@extends('dashboard_admin.index')
+ @extends('dashboard_admin.index')
 
 @section ('title','F O O D S      E D I T')
 
@@ -33,8 +33,7 @@
           </div>
           <div class="col-md-5">
             <label for="validationDefault01" class="form-label">Nombre del platillo/bebida</label>
-            <input name="name" type="text" class="form-control" id="validationDefault01" placeholder="Escribe un platillo" 
-            value="" maxlength="50" required>
+            <input name="name" type="text" class="form-control" id="validationDefault01" value="{{$foods->name}}" maxlength="50" required>
             <div class="valid-feedback">
               Muy bien
             </div>
@@ -46,34 +45,34 @@
             {{-- separador de columnas --}}
           </div>
           <div class="col-md-5">
-            <label for="validationDefault04" class="form-label">Categoria</label>
-            <select name="category" class="form-select" id="validationDefault04" required>
-              <option selected disabled value="">Elige una opción</option>
-              <option>Desayuno</option>
-              <option>Comida</option>
-              <option>Entrada</option>
-              <option>Postre</option>
-              <option>Bebida</option>
-            </select>
-            <div class="invalid-feedback">
-              Porfavor inserta una categoria 
-            </div>
-          </div>
+    <label for="validationDefault04" class="form-label">Categoria</label>
+    <select name="category" class="form-select" id="validationDefault04" required>
+        <option value="" disabled></option> <!-- Opción vacía -->
+        <option value="Desayuno" {{ $foods->category === 'Desayuno' ? 'selected' : '' }}>Desayuno</option>
+        <option value="Comida" {{ $foods->category === 'Comida' ? 'selected' : '' }}>Comida</option>
+        <option value="Entrada" {{ $foods->category === 'Entrada' ? 'selected' : '' }}>Entrada</option>
+        <option value="Postre" {{ $foods->category === 'Postre' ? 'selected' : '' }}>Postre</option>
+        <option value="Bebida" {{ $foods->category === 'Bebida' ? 'selected' : '' }}>Bebida</option>
+    </select>
+    <div class="invalid-feedback">
+        Por favor inserta una categoría
+    </div>
+</div>
 
           <div class="col-md-8">
             <label for="validationDefault02" class="form-label">Descripción</label>
-            <input name="description" type="text" class="form-control" id="validationDefault02" placeholder="Escribe una descripción" min="0" required>
+            <input name="description" type="text" class="form-control" id="validationDefault02" value="{{$foods->description}}" min="0" required>
           </div>
           
           <div class="col-md-8">
             <label for="validationDefault02" class="form-label">Costo del Platillo/Bebida</label>
-            <input name="price" type="number" class="form-control" id="validationDefault02" placeholder="Escribe un precio" min="0" required>
+            <input name="price" type="number" class="form-control" id="validationDefault02" value="{{$foods->price}}" min="0" required>
           </div>
           
 
           <div class="col-8">
             <label for="formFileSm" class="form-label">Ingrese una foto del platillo</label>
-            <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" required>
+            <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" value="{{$foods->img1}}">
             <div class="valid-feedback">
               Muy bien
             </div>

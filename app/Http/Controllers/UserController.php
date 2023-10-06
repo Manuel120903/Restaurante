@@ -60,7 +60,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('users/show')->with('users',user::find($id));
     }
 
     /**
@@ -71,8 +71,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        return view('users/edit')->with('users',user::find($id));    }
 
     /**
      * Update the specified resource in storage.
@@ -83,7 +82,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=user::find($id);
+     
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->phone=$request->phone;
+        $user->image=$request->image;
+        $user->category=$request->category;
+        $user->password=$request->password;
+        $user->status=1;
+
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -94,6 +105,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=user::find($id);
+        $user->status=0;
+
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 }

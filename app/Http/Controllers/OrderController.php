@@ -82,7 +82,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('orders/show')->with('orders',order::find($id));
     }
 
     /**
@@ -93,7 +93,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('orders/edit')->with('orders',order::find($id));  
     }
 
     /**
@@ -105,7 +105,16 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = order::find($id);
+        $order->name=$request->name;
+        $order->img1=$request->img1;
+        $order->table_id=$request->table;
+        $order->status=1;
+
+
+        $order->save();
+
+        return redirect()->route('orders.index');
     }
 
     /**
@@ -116,6 +125,11 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = order::find($id);
+        $order->status=0;
+        $order->save();
+
+        return redirect()->route('orders.index');
+        
     }
 }

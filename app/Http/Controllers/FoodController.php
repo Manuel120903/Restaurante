@@ -43,10 +43,23 @@ class FoodController extends Controller
         $ps->category=$request->category;
         $ps->description=$request->description;
         $ps->price=$request->price;
-        $ps->img1=$request->img1;
+        //$ps->img1=$request->img1;
+        $ps->img1='default.jpg'; //Se tiene una imagen por default, podría ser el logo del local o una imgen que diga que insertemos imagen o que es una imagen no disponible
         $ps->status=1;
 
         $ps->save();
+
+
+        if($request->hasFile("imagen")){
+            $file = $request->imagen;
+            $extension=$file->extension();
+            $new_name=$ps->id."_.1".$extension;
+            $path = $file->storeAs('Imagenes',$new_name, 'public');
+            $ps->imagen=$path;
+            $ps->save();
+
+
+        }
 
         return redirect()->route('foods.index');
 
@@ -95,7 +108,11 @@ class FoodController extends Controller
 
         $ps->save();
 
+        $ps->name = $request->input('name');
+       
+        $ps->save();
         return redirect()->route('foods.index');
+        
 
     }
 

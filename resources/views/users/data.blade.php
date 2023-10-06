@@ -7,7 +7,11 @@
         <th scope="col">Nombre del Usuario</th>
         <th scope="col">Numero de Telefono</th>
         <th scope="col">Categoria</th>
-        <th scope="col">Foto</th>
+        <th scope="col">Ruta</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Borrar</th>
+
       </tr>
     </thead>
     <tbody>
@@ -20,6 +24,9 @@
        <th>{{$user->phone}}</th>
        <th>{{$user->category}}</th>
        <th>{{$user->image}}</th>
+       <td><img src="/Imagenes{{$user->imagen}}" alt="{{$user->imagen}}" width="75px"/></td>
+       <td><a href="/admin/users/{{$user->id}}/edit"><Em>EDITAR</Em></a></td>
+       <td><a href="/admin/users/{{$user->id}}"><Em>BORRAR</Em></a></td>
       </tr>
       @endforeach
     </tbody>
