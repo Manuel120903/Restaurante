@@ -16,7 +16,7 @@
       Porfavor inserta nombre del cliente
     </div>
   </div>
-  
+  {{-- holaaaa --}}
   <div class="col-1">
         {{-- separador de columnas --}}
   </div>
