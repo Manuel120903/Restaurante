@@ -8,6 +8,8 @@
         <th scope="col">Tipo</th>
         <th scope="col">Descripción</th>
         <th scope="col">Imagen</th>        
+        <th scope="col">Editar</th>
+        <th scope="col">Borrar</th>
       </tr>
     </thead>
     <tbody> 

@@ -59,7 +59,7 @@ class OrderController extends Controller
         $order = new order();
         $order->name=$request->name;
         $order->img1=$request->img1;
-        //Abajo ya hay un status, por lo pronto comento esto jsjsj
+       
         //$order->status=$request->status;
        // $order->date=$request->date;
        // $order->caja_id=$request->caja_id;
@@ -67,7 +67,7 @@ class OrderController extends Controller
         //$order->detail_id=$request->detail_id;
         $order->table_id=$request->table;
         $order->status=1;
-
+        
 
         $order->save();
 
@@ -93,8 +93,12 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        return view('orders/edit')->with('orders',order::find($id));  
+        return view('orders/edit')->with('orders',order::find($id));
+          
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -107,13 +111,15 @@ class OrderController extends Controller
     {
         $order = order::find($id);
         $order->name=$request->name;
-        $order->img1=$request->img1;
         $order->table_id=$request->table;
+        $order->img1=$request->img1;
         $order->status=1;
 
 
         $order->save();
+        $order->name = $request->imput('name');
 
+        $order->save();
         return redirect()->route('orders.index');
     }
 

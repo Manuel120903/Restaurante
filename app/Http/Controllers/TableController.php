@@ -13,7 +13,9 @@ class TableController extends Controller
      */
     public function index()
     {
-        //
+        $tables = table::all(); // Obtén todas las mesas de la base de datos
+
+        return view('orders', compact('table'));
     }
 
     /**

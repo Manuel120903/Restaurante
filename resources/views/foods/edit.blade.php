@@ -112,7 +112,7 @@
           </div>
 
           <div class="col-4">
-            <button class="btn btn-danger" type="submit">Registrar</button>
+            <button class="btn btn-danger" type="submit">GUARDAR CAMBIOS</button>
           </div>
           <div class="col-6">
             {{-- separador de columnas --}}

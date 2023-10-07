@@ -113,7 +113,7 @@
           </div>
 
           <div class="col-4">
-            <button class="btn btn-danger" type="submit">Registrar</button>
+            <button class="btn btn-danger" type="submit">ELIMINAR</button>
           </div>
           <div class="col-6">
             {{-- separador de columnas --}}
