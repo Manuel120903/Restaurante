@@ -1,4 +1,4 @@
-<form class="row g-3  needs-validation"  action="/admin/users" novalidate method="POST">
+<form class="row g-3  needs-validation"  action="/admin/users" novalidate method="POST" enctype="multipart/form-data">
   @csrf
     <div class="col-2">
       
@@ -68,7 +68,7 @@
 </div>
     <div class="col-4">
       <label for="formFileSm" class="form-label">Ingrese una foto del usuario</label>
-      <input name="image" class="form-control form-control-sm" id="formFileSm"  type="file" required>
+      <input name="image" class="form-control form-control-sm" id="formFileSm"  type="file" accept="image/*"required>
       <div class="valid-feedback">
         Muy bien
       </div>

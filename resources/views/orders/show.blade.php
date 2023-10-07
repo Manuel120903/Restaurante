@@ -79,7 +79,7 @@
         Muy bien
       </div>
       <div class="invalid-feedback">
-        Porfavor inserta alguina opción
+        Porfavor inserta alguna opción
       </div>
     </div>
     <div class="col-1">

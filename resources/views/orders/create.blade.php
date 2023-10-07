@@ -1,4 +1,4 @@
-<form class="row g-3 needs-validation"  action="/admin/orders" novalidate method="POST">>
+<form class="row g-3 needs-validation"  action="/admin/orders" novalidate method="POST" enctype="multipart/form-data">
   @csrf
   <div class="col-2">
     {{-- separador de columnas --}}
@@ -35,7 +35,7 @@
       Porfavor inserta alguna opción
     </div>
   </div>
-  <div class="col-2">
+  <div class="col-3">
     {{-- separador de columnas --}}
 </div>
 
@@ -72,7 +72,7 @@
       Muy bien
     </div>
     <div class="invalid-feedback">
-      Porfavor inserta alguina opción
+      Porfavor inserta alguna opción
     </div>
   </div>
   <div class="col-1">
@@ -91,7 +91,7 @@
   
   <div class="col-4">
     <label for="formFileSm" class="form-label">Ingrese una foto de la orden</label>
-    <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file" >
+    <input name="img1" class="form-control form-control-sm" id="formFileSm"  type="file"  accept="image/*" >
     
   </div>
   <div class="col-8">

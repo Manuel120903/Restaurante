@@ -1,4 +1,4 @@
- @extends('dashboard_admin.index')
+@extends('dashboard_admin.index')
 
 @section ('title','F O O D S      E D I T')
 

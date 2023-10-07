@@ -55,21 +55,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-    //echo('hola de nuevo');
+    
         $order = new order();
         $order->name=$request->name;
         $order->img1=$request->img1;
        
-        //$order->status=$request->status;
-       // $order->date=$request->date;
-       // $order->caja_id=$request->caja_id;
-       // $order->user_id=$request->user_id;
-        //$order->detail_id=$request->detail_id;
+      
         $order->table_id=$request->table;
         $order->status=1;
         
 
         $order->save();
+
+        if($request->hasFile("img1")){
+            $file = $request->img1;
+            $extension=$file->extension();
+            $new_name="orders-".$order->id."_1.".$extension;
+            $path = $file->storeAs('Imagenes',$new_name, 'public');
+            $order->img1=$path;
+            $order->save();    
+
+
+        }
 
         return redirect()->route('orders.index');
     }
@@ -92,7 +99,9 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+    
     {
+        
         return view('orders/edit')->with('orders',order::find($id));
           
     }
@@ -109,6 +118,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        
         $order = order::find($id);
         $order->name=$request->name;
         $order->table_id=$request->table;
