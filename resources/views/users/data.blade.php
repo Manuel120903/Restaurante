@@ -24,7 +24,7 @@
        <th>{{$user->phone}}</th>
        <th>{{$user->category}}</th>
        <th>{{$user->image}}</th>
-       <td> <img src="{{ asset ('storage/'.$user->image) }}" alt="{{$user->image}}" width="50%"></td>
+       <td> <img src="{{ asset ('storage/'.$user->image) }}" alt="{{$user->image}}" width="200px"></td>
        <td><a href="/admin/users/{{$user->id}}/edit"><Em>EDITAR</Em></a></td>
        <td><a href="/admin/users/{{$user->id}}"><Em>BORRAR</Em></a></td>
       </tr>

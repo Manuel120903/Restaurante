@@ -9,7 +9,7 @@
     
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form class="row g-2 needs-validation"  action="/admin/foods/{{$foods->id}}" novalidate method="POST">
+        <form class="row g-2 needs-validation"  action="/admin/foods/{{$foods->id}}" novalidate method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div class="col-12">

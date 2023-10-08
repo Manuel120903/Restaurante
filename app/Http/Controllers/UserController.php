@@ -105,6 +105,17 @@ class UserController extends Controller
 
         $user->save();
 
+        if($request->hasFile("image")){
+            $file = $request->image;
+            $extension=$file->extension();
+            $new_name="user-".$user->id."_1.".$extension;
+            $path = $file->storeAs('Imagenes',$new_name, 'public');
+            $user->image=$path;
+            $user->save();    
+
+
+        }
+
         return redirect()->route('users.index');
     }
 

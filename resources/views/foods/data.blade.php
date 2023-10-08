@@ -22,7 +22,7 @@
        <th>{{$food->category}}</th>
        <th>{{$food->description}}</th>
        
-       <td> <img src="{{ asset ('storage/'.$food->img1) }}" alt="{{$food->img1}}" width="50%"></td>
+       <td> <img src="{{ asset ('storage/'.$food->img1) }}" alt="{{$food->img1}}" width="50px" ></td>
        <td><a href="/admin/foods/{{$food->id}}/edit"><Em>EDITAR</Em></a></td>
        <td><a href="/admin/foods/{{$food->id}}"><Em>BORRAR</Em></a></td>
       </tr>

@@ -109,9 +109,23 @@ class FoodController extends Controller
         $ps->save();
 
         $ps->name = $request->input('name');
+
        
         $ps->save();
+            
+        if($request->hasFile("img1")){
+            $file = $request->img1;
+            $extension=$file->extension();
+            $new_name="food-".$ps->id."_1.".$extension;
+            $path = $file->storeAs('Imagenes',$new_name, 'public');
+            $ps->img1=$path;
+            $ps->save();    
+
+
+        }
+
         return redirect()->route('foods.index');
+
         
 
     }

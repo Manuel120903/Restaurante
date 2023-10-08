@@ -131,6 +131,18 @@ class OrderController extends Controller
         $order->name = $request->imput('name');
 
         $order->save();
+
+        if($request->hasFile("img1")){
+            $file = $request->img1;
+            $extension=$file->extension();
+            $new_name="order-".$order->id."_1.".$extension;
+            $path = $file->storeAs('Imagenes',$new_name, 'public');
+            $order->img1=$path;
+            $order->save();    
+
+
+        }
+
         return redirect()->route('orders.index');
     }
 
