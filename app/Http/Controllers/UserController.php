@@ -15,9 +15,9 @@ class UserController extends Controller
     public function index()
     {
         //return view('users.index');   
-        
-        return view('/users/index')->with('users',user::where('status','1')->get());   
-     }
+
+        return view('/users/index')->with('users', user::where('status', '1')->get());
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +26,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -39,25 +38,23 @@ class UserController extends Controller
     {
         //echo('Muy bien a funcionado');
         $user = new user();
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->phone=$request->phone;
-        $user->image=$request->image;
-        $user->category=$request->category;
-        $user->password=$request->password;
-        $user->status=1;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->image = $request->image;
+        $user->category = $request->category;
+        $user->password = $request->password;
+        $user->status = 1;
 
         $user->save();
 
-        if($request->hasFile("image")){
+        if ($request->hasFile("image")) {
             $file = $request->image;
-            $extension=$file->extension();
-            $new_name="user-".$user->id."_1.".$extension;
-            $path = $file->storeAs('Imagenes',$new_name, 'public');
-            $user->image=$path;
-            $user->save();    
-
-
+            $extension = $file->extension();
+            $new_name = "user-" . $user->id . "_1." . $extension;
+            $path = $file->storeAs('Imagenes', $new_name, 'public');
+            $user->image = $path;
+            $user->save();
         }
 
         return redirect()->route('users.index');
@@ -71,7 +68,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('users/show')->with('users',user::find($id));
+        return view('users/show')->with('user', user::find($id));
     }
 
     /**
@@ -82,7 +79,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('users/edit')->with('users',user::find($id));    }
+        return view('users/edit')->with('user', user::find($id));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -93,27 +91,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=user::find($id);
-     
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->phone=$request->phone;
-        $user->image=$request->image;
-        $user->category=$request->category;
-        $user->password=$request->password;
-        $user->status=1;
+        $user = user::find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->image = $request->image;
+        $user->category = $request->category;
+        $user->password = $request->password;
+        $user->status = 1;
 
         $user->save();
 
-        if($request->hasFile("image")){
+        if ($request->hasFile("image")) {
             $file = $request->image;
-            $extension=$file->extension();
-            $new_name="user-".$user->id."_1.".$extension;
-            $path = $file->storeAs('Imagenes',$new_name, 'public');
-            $user->image=$path;
-            $user->save();    
-
-
+            $extension = $file->extension();
+            $new_name = "user-" . $user->id . "_1." . $extension;
+            $path = $file->storeAs('Imagenes', $new_name, 'public');
+            $user->image = $path;
+            $user->save();
         }
 
         return redirect()->route('users.index');
@@ -127,8 +123,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=user::find($id);
-        $user->status=0;
+        $user = user::find($id);
+        $user->status = 0;
 
         $user->save();
 

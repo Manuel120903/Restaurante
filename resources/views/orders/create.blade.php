@@ -83,7 +83,7 @@
   </div>
   <div class="col-md-3">
     <label for="exampleFormControlTextarea1" class="form-label">Detalle de la orden</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
   </div>
   <div class="col-1">
     {{-- separador de columnas --}}

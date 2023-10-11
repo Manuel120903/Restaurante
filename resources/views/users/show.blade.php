@@ -4,7 +4,7 @@
 
 @section ('content')
 
-<form class="row g-3  needs-validation"  action="/admin/users" novalidate method="POST" enctype="multipart/form-data">
+<form class="row g-3  needs-validation"  action="{{route('users.destroy',['user'=>$user->id])}}"  novalidate method="POST" enctype="multipart/form-data">
     @csrf
     @method('DELETE')
       <div class="col-2">
@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-4">
         <label for="validationDefault01" class="form-label">Ingrese un nombre</label>
-        <input name="name" type="text" class="form-control" id="validationDefault01"  maxlength="50" >
+        <input name="name" value="{{$user->name}}" type="text" class="form-control" id="validationDefault01"  maxlength="50" disabled >
         <div class="valid-feedback">
           Muy bien
         </div>
@@ -23,13 +23,7 @@
       </div>
       <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Ingrese un numero de telefono</label>
-        <input name="phone" type="number" class="form-control" id="validationDefault02" maxlength="10" >
-        <div class="valid-feedback">
-          Muy bien
-        </div>
-        <div class="invalid-feedback">
-          Porfavor inserta un numero de telefono
-        </div>
+        <input name="phone" value="{{$user->phone}}" type="number" class="form-control" id="validationDefault02" maxlength="10" disabled>
       </div>
       <div class="col-2">
                 {{-- separador de columnas --}}
@@ -41,13 +35,13 @@
         <label for="validationDefaultUsername" class="form-label">Ingrese un correo</label>
         <div class="input-group">
           <span class="input-group-text" id="inputGroupPrepend2">@</span>
-          <input name="email" type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" >
+          <input name="email" value="{{$user->email}}" type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2"  disabled>
         </div>
       </div>
      
       <div class="col-md-4">
         <label for="validationDefault03" class="form-label">Ingrese una contraseña</label>
-        <input name="password" type="password" class="form-control" id="validationDefault03" >
+        <input name="password" value="{{$user->password}}" type="password" class="form-control" id="validationDefault03" disabled >
         <div class="valid-feedback">
           Muy bien
         </div>
@@ -63,11 +57,8 @@
   </div>
       <div class="col-md-3">
         <label for="validationDefault04" class="form-label">Ingrese una categoria</label>
-        <select name="category" class="form-select" id="validationDefault04" >
-          <option selected disabled value="">Escoje...</option>
-          <option>Cocinero</option>
-          <option>Mesero</option>
-          <option>Caja</option>
+        <select name="category" class="form-select" id="validationDefault04"  disabled>
+          <option selected disabled value="{{$user->category}}">{{$user->category}}</option>
         </select>
       </div>
       <div class="col-1">
@@ -75,7 +66,7 @@
   </div>
       <div class="col-4">
         <label for="formFileSm" class="form-label">Ingrese una foto del usuario</label>
-        <input name="image" class="form-control form-control-sm" id="formFileSm"  type="file" accept="image/*">
+        <input name="image" value="{{$user->image}}" class="form-control form-control-sm" id="formFileSm"  type="file" accept="image/*" disabled>
         <div class="valid-feedback">
           Muy bien
         </div>
@@ -130,3 +121,6 @@
       })
     })()
     </script>
+
+        
+    @endsection

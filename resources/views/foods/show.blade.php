@@ -49,11 +49,6 @@
             <label for="validationDefault04" class="form-label">Categoria</label>
             <select name="category" class="form-select" id="validationDefault04" disabled>
               <option selected disabled value="{{$foods->category}}">{{$foods->category}}</option>
-              <option>Desayuno</option>
-              <option>Comida</option>
-              <option>Entrada</option>
-              <option>Postre</option>
-              <option>Bebida</option>
             </select>
             <div class="invalid-feedback">
               Porfavor inserta una categoria 

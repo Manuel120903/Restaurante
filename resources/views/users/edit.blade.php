@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="mt-4">Editar Usuario</h2>
-            <form class="needs-validation mt-4" action="/admin/users" novalidate method="POST" enctype="multipart/form-data">
+            <form class="needs-validation mt-4" action="{{route('users.update',['user'=>$user->id])}}" novalidate method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

@@ -18,22 +18,22 @@ class OrderController extends Controller
     public function index()
     {
         $food = Food::where('status', '1')
-        ->where('category', '!=', 'bebida')
-        ->get();
+            ->where('category', '!=', 'bebida')
+            ->get();
 
         $bebida = Food::where('status', '1')
-        ->where('category', 'bebida')
-        ->get();
+            ->where('category', 'bebida')
+            ->get();
 
         $table = Table::all();
-        
+
         $order = Order::where('status', '1')->get();
 
-        return view('orders.index', compact('order','food','bebida','table'));
+        return view('orders.index', compact('order', 'food', 'bebida', 'table'));
 
 
-        
-       // return view('tu_vista', compact('users', 'posts'));
+
+        // return view('tu_vista', compact('users', 'posts'));
 
     }
 
@@ -55,27 +55,27 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-    
+
         $order = new order();
-        $order->name=$request->name;
-        $order->img1=$request->img1;
-       
-      
-        $order->table_id=$request->table;
-        $order->status=1;
-        
+        $order->name = $request->name;
+        $order->img1 = $request->img1;
+
+
+        $order->table_id = $request->table;
+        $order->description = $request->description;
+
+        $order->status = 1;
+
 
         $order->save();
 
-        if($request->hasFile("img1")){
+        if ($request->hasFile("img1")) {
             $file = $request->img1;
-            $extension=$file->extension();
-            $new_name="orders-".$order->id."_1.".$extension;
-            $path = $file->storeAs('Imagenes',$new_name, 'public');
-            $order->img1=$path;
-            $order->save();    
-
-
+            $extension = $file->extension();
+            $new_name = "orders-" . $order->id . "_1." . $extension;
+            $path = $file->storeAs('Imagenes', $new_name, 'public');
+            $order->img1 = $path;
+            $order->save();
         }
 
         return redirect()->route('orders.index');
@@ -89,8 +89,12 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        return view('orders/show')->with('orders',order::find($id));
-    }
+        $order = Order::find($id);
+        $table = Table::all(); // Obtén la lista de mesas
+        $food = Food::where('status', '1')->where('category', '!=', 'bebida')->get(); // Obtén la lista de alimentos
+        $bebida = Food::where('status', '1')->where('category', 'bebida')->get(); // Obtén la lista de bebidas
+    
+        return view('orders.show', ['order' => $order, 'table' => $table, 'food' => $food, 'bebida' => $bebida]);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -99,11 +103,13 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    
+
     {
-        
-        return view('orders/edit')->with('orders',order::find($id));
-          
+        $table = Table::all(); // Obtén la lista de mesas
+        $food = Food::where('status', '1')->where('category', '!=', 'bebida')->get(); // Obtén la lista de alimentos
+        $bebida = Food::where('status', '1')->where('category', 'bebida')->get(); // Obtén la lista de bebidas
+
+        return view('orders.edit', ['orders' => Order::find($id), 'table' => $table, 'food' => $food, 'bebida' => $bebida]);
     }
 
 
@@ -118,29 +124,30 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        
+
+
         $order = order::find($id);
-        $order->name=$request->name;
-        $order->table_id=$request->table;
-        $order->img1=$request->img1;
-        $order->status=1;
+        $order->name = $request->name;
+        $order->table_id = $request->table;
+        $order->img1 = $request->img1;
+        $order->description = $request->description;
+        $order->status = 1;
 
 
         $order->save();
-        $order->name = $request->imput('name');
+        $order->name = $request->input('name');
 
         $order->save();
 
-        if($request->hasFile("img1")){
+        // return view('orders.edit', ['orders' => Order::find($id), 'table' => $table]);
+
+        if ($request->hasFile("img1")) {
             $file = $request->img1;
-            $extension=$file->extension();
-            $new_name="order-".$order->id."_1.".$extension;
-            $path = $file->storeAs('Imagenes',$new_name, 'public');
-            $order->img1=$path;
-            $order->save();    
-
-
+            $extension = $file->extension();
+            $new_name = "order-" . $order->id . "_1." . $extension;
+            $path = $file->storeAs('Imagenes', $new_name, 'public');
+            $order->img1 = $path;
+            $order->save();
         }
 
         return redirect()->route('orders.index');
@@ -154,11 +161,11 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+      
         $order = order::find($id);
-        $order->status=0;
+        $order->status = 0;
         $order->save();
 
         return redirect()->route('orders.index');
-        
     }
 }

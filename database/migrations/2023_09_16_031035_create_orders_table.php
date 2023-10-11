@@ -20,6 +20,7 @@ return new class extends Migration
             //$table-> date('date');
             $table-> integer('status');
             $table-> string('img1',100);
+            $table->string ('description');
 
            // $table->foreignId('caja_id');
            // $table->foreignId('user_id');

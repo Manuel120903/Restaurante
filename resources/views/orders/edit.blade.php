@@ -1,15 +1,21 @@
-<form class="row g-3 needs-validation"  action="/admin/orders" novalidate method="POST">>
+@extends('dashboard_admin.index')
+
+@section ('title','O R D E R S     E D I T')
+
+@section ('content')
+
+
+<form class="row g-3 needs-validation"  action="{{route('orders.update',['order'=>$orders->id])}}" novalidate method="POST"enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    <div class="col-2">
+
+    <div class="col-1">
       {{-- separador de columnas --}}
   </div>
     <div class="col-md-3">
       <label for="validationDefault01" class="form-label">Ingrese nombre del cliente</label>
       <input name="name" type="text" class="form-control" id="validationDefault01"  maxlength="50" required>
-      {{-- @forEach($user as $name)
-        <option value="{{$name->id}}">{{$name->name}}</option>
-        @endforeach --}}
+     
       <div class="valid-feedback">
         Muy bien
       </div>
@@ -141,3 +147,6 @@
     })
   })()
   </script>
+
+      
+  @endsection
