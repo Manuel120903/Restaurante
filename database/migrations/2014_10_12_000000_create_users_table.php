@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name',50);
             $table->string('email')->unique();
-            $table->string('phone',10);
-            $table->string('image',255);
-            $table->string('category',30);
+            $table->string('phone',10)->nullable();
+            $table->string('image',255)->nullable();
+            $table->string('category',30)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             //Le agregue status ya que no lo encuentra para hacer la vista de la tabla de usuarios en admin
-            $table->string('status');
+            $table->string('status')->default('ACTIVO');
             $table->rememberToken();
             $table->timestamps();
         });
