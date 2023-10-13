@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('image',255)->nullable();
             $table->string('category',30)->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            //Le agregue status ya que no lo encuentra para hacer la vista de la tabla de usuarios en admin
+            $table->string('password')->nullable();
             $table->string('status')->default('ACTIVO');
             $table->rememberToken();
             $table->timestamps();
