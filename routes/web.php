@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
-
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('inicio.index');
+});
+
+Route::get('/google-auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+Route::get('/google-auth/callback', function () {
+    $user = Socialite::driver('google')->stateless()->user();
+    $user = User::updateOrCreate([
+        'google_id' => $user->id,
+    ], [
+        'name' => $user->name,
+        'email' => $user->email,
+    ]);
+ 
+    Auth::login($user);
+ 
+    return redirect('/admin/principal');
+    
 });
 
 

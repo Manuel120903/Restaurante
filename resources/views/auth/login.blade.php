@@ -1,6 +1,9 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -37,6 +40,10 @@
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
+                <a href="google-auth/redirect"> 
+                    <i class="fa-brands fa-google"></i> Google
+                </a>
+                
             @endif
 
             <x-primary-button class="ml-3">
