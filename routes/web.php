@@ -51,6 +51,8 @@ Route::get('/dashboard', function () {
     return view('principal.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::view('/public/api/menu','menu.menu_api');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
