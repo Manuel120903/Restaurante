@@ -7,7 +7,9 @@ use App\Http\Controllers\UserController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 
+
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 
 /*
@@ -51,7 +53,22 @@ Route::get('/dashboard', function () {
     return view('principal.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::view('/public/api/menu','menu.menu_api');
+Route::get('/public/api/menu', function () {
+    $response=Http::get('http://fakestoreapi.com/products');
+    $body=$response->body();
+    $array=json_decode($body);
+    //dd ($array);
+    return view('menu.menu_api')->with('productos',$array);
+})->name ('api.menu');
+//Route::get('/public/api/menu','menu.menu_api');
+
+Route::get('/public/api/menuDetalle/{id}', function ($id) {
+    $response=Http::get('http://fakestoreapi.com/products/'.$id);
+    $body=$response->body();
+    $item=json_decode($body);
+    //dd ($array);
+    return view('menu.detalle_menu_api')->with('producto',$item);
+})->name('api.menuDetalle');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
