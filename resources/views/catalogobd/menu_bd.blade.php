@@ -14,11 +14,6 @@
         <link href="/css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Product List DB') }}
-            </h2>
-        </x-slot>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -31,7 +26,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">MENÚ</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="/public/catalogo">Todos los productos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">Comidas</a></li>
                                 <li><a class="dropdown-item" href="#!">Bebidas</a></li>
@@ -66,12 +61,12 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="/storage/{{$p->img1}}" alt="/storage/{{$p->img1}}" />
+                            <img class="card-img-top" src="{{$p->image}}" alt="{{$p->image}}" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">{{$p->name}}</h5>
+                                    <h5 class="fw-bolder">{{$p->title}}</h5>
                                     <p>{{$p->description}}</p>
                                     <!-- Product price-->
                                     {{$p->price}}<!--$99.00-->
@@ -79,18 +74,8 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" value="{{ $product->id }}" name="id">
-                                        <input type="hidden" value="{{ $product->name }}" name="name">
-                                        <input type="hidden" value="{{ $product->price }}" name="price">
-                                        <input type="hidden" value="{{ $product->image }}"  name="image">
-                                        <input type="hidden" value="1" name="quantity">
-                                        <button class="btn btn-outline-dark mt-auto">Add To Cart</button>
-                                    </form>
-                                    <a class="btn btn-outline-dark mt-auto" href="/public/api/menuDetalle/{{$p->id}}">Detalles</a></div>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/public/api/menuDetalle/{{$p->id}}">Detalles</a></div>
+                            </div>
                         </div>
                     </div>
                     @endforeach

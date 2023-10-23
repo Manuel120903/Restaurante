@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use App\Http\Controllers\PublicFoodController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,19 @@ Route::get('/public/api/menuDetalle/{id}', function ($id) {
     //dd ($array);
     return view('menu.detalle_menu_api')->with('producto',$item);
 })->name('api.menuDetalle');
+
+/*---------Aqui empieza lo del carrito---------*/
+Route::get ('/public/catalogo',[PublicFoodController::class,'productList'])->name('catalogo');
+
+Route::get('/cart/List', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('/cart/Store', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('/cart/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
+
+/*---------Aqui termina lo del carrito-----------*/
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
