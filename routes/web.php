@@ -71,7 +71,7 @@ Route::get('/public/api/menuDetalle/{id}', function ($id) {
     return view('menu.detalle_menu_api')->with('producto',$item);
 })->name('api.menuDetalle');
 
-/*---------Aqui empieza lo del carrito---------*/
+/*---------Aqui empieza lo del carritoooooo---------*/
 Route::get ('/public/menu',[PublicFoodController::class,'productList'])->name('menu');
 
 Route::get('/cart/List', [CartController::class, 'cartList'])->name('cart.list');
