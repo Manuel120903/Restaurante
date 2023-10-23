@@ -66,7 +66,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="/storage/{{$p->img1}}" alt="/storage/{{$p->img1}}" />
+                            <img class="card-img-top" src="/storage/{{$p->imagen}}" alt="/storage/{{$p->imagen}}" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -82,10 +82,10 @@
                                 <div class="text-center">
                                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" value="{{ $product->id }}" name="id">
-                                        <input type="hidden" value="{{ $product->name }}" name="name">
-                                        <input type="hidden" value="{{ $product->price }}" name="price">
-                                        <input type="hidden" value="{{ $product->image }}"  name="image">
+                                        <input type="hidden" value="{{ $p->id }}" name="id">
+                                        <input type="hidden" value="{{ $p->name }}" name="name">
+                                        <input type="hidden" value="{{ $p->price }}" name="price">
+                                        <input type="hidden" value="{{ $p->image }}"  name="image">
                                         <input type="hidden" value="1" name="quantity">
                                         <button class="btn btn-outline-dark mt-auto">Add To Cart</button>
                                     </form>

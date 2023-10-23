@@ -72,7 +72,7 @@ Route::get('/public/api/menuDetalle/{id}', function ($id) {
 })->name('api.menuDetalle');
 
 /*---------Aqui empieza lo del carrito---------*/
-Route::get ('/public/catalogo',[PublicFoodController::class,'productList'])->name('catalogo');
+Route::get ('/public/menu',[PublicFoodController::class,'productList'])->name('menu');
 
 Route::get('/cart/List', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('/cart/Store', [CartController::class, 'addToCart'])->name('cart.store');
